@@ -16,7 +16,7 @@ module.exports = class Poop extends BaseStorageModule {
       return;
     }
 
-    if (this.isBlackListed(data.channel)) {
+    if (await this.isBlackListed(data.channel)) {
       this.denyPooping(data.channel);
       return;
     }
@@ -39,7 +39,7 @@ module.exports = class Poop extends BaseStorageModule {
   }
 
   async denyPooping(channel) {
-    const msg = `Not in ${channel} please!`;
+    const msg = `Not in this channel please!`;
     this.bot.postMessage(channel, msg);
   }
 
@@ -148,7 +148,7 @@ module.exports = class Poop extends BaseStorageModule {
   async isBlackListed(channel) {
     const blacklisted = config.getKey(botParams.blacklist).poop;
     const currentChannel = await this.bot.getChannelById(channel);
-
+ 
     return blacklisted.includes(currentChannel.name);
   }
 

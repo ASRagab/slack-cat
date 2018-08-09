@@ -20,7 +20,7 @@
 
    ],
    "channels_blacklist":{
-       "poop":['announcements', 'incident-discussion', 'product-chat']
+       "poop":["announcements", "incident-discussion", "product-chat"]
    },
    "node_env":"production",
    "port":80,
